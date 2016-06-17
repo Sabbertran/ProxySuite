@@ -125,7 +125,6 @@ public class ProxySuite extends Plugin {
             Metrics metrics = new Metrics(this);
             metrics.start();
         } catch (IOException e) {
-            // Failed to submit the stats :-(
         }
 
         getLogger().info(getDescription().getName() + " " + getDescription().getVersion() + " by " + getDescription()
