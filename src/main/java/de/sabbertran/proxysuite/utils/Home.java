@@ -1,4 +1,4 @@
-package de.sabbertran.proxysuite.objects;
+package de.sabbertran.proxysuite.utils;
 
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 

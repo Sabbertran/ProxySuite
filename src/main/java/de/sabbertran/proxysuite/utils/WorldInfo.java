@@ -1,4 +1,4 @@
-package de.sabbertran.proxysuite.objects;
+package de.sabbertran.proxysuite.utils;
 
 public class WorldInfo {
     private String world;

@@ -1,7 +1,7 @@
 package de.sabbertran.proxysuite.handlers;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.Location;
+import de.sabbertran.proxysuite.utils.Location;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

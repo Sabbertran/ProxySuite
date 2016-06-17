@@ -1,7 +1,7 @@
 package de.sabbertran.proxysuite.commands.warp;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.Warp;
+import de.sabbertran.proxysuite.utils.Warp;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
 

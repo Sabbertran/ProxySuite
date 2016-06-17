@@ -1,8 +1,8 @@
 package de.sabbertran.proxysuite;
 
 import codecrafter47.bungeetablistplus.BungeeTabListPlus;
-import de.sabbertran.proxysuite.objects.Location;
-import de.sabbertran.proxysuite.objects.LoggedMessage;
+import de.sabbertran.proxysuite.utils.Location;
+import de.sabbertran.proxysuite.utils.LoggedMessage;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.*;
 import net.md_5.bungee.api.plugin.Listener;

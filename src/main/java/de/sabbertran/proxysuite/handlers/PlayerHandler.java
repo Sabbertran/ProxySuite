@@ -2,7 +2,7 @@ package de.sabbertran.proxysuite.handlers;
 
 import de.sabbertran.proxysuite.ProxySuite;
 import de.sabbertran.proxysuite.ProxySuiteUtils;
-import de.sabbertran.proxysuite.objects.WorldInfo;
+import de.sabbertran.proxysuite.utils.WorldInfo;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.PendingConnection;
 import net.md_5.bungee.api.connection.ProxiedPlayer;

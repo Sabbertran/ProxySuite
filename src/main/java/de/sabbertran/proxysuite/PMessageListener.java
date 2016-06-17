@@ -1,6 +1,6 @@
 package de.sabbertran.proxysuite;
 
-import de.sabbertran.proxysuite.objects.*;
+import de.sabbertran.proxysuite.utils.*;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;

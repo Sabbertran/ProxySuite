@@ -1,7 +1,7 @@
 package de.sabbertran.proxysuite.commands.portal;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.Portal;
+import de.sabbertran.proxysuite.utils.Portal;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.plugin.Command;
 

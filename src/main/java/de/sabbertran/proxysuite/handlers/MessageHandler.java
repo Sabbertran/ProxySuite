@@ -1,7 +1,7 @@
 package de.sabbertran.proxysuite.handlers;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.LoggedMessage;
+import de.sabbertran.proxysuite.utils.LoggedMessage;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.BaseComponent;

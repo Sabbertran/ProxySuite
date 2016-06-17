@@ -1,8 +1,8 @@
 package de.sabbertran.proxysuite.handlers;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.Location;
-import de.sabbertran.proxysuite.objects.Warp;
+import de.sabbertran.proxysuite.utils.Location;
+import de.sabbertran.proxysuite.utils.Warp;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;

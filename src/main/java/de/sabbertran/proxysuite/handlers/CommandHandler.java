@@ -31,7 +31,7 @@ import de.sabbertran.proxysuite.commands.warp.DelWarpCommand;
 import de.sabbertran.proxysuite.commands.warp.SetWarpCommand;
 import de.sabbertran.proxysuite.commands.warp.WarpCommand;
 import de.sabbertran.proxysuite.commands.warp.WarpsCommand;
-import de.sabbertran.proxysuite.objects.CheckedCommand;
+import de.sabbertran.proxysuite.utils.CheckedCommand;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;

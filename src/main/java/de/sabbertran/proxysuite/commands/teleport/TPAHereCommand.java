@@ -1,7 +1,7 @@
 package de.sabbertran.proxysuite.commands.teleport;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.PendingTeleport;
+import de.sabbertran.proxysuite.utils.PendingTeleport;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;

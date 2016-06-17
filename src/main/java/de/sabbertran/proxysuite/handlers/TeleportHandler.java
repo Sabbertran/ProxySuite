@@ -1,10 +1,10 @@
 package de.sabbertran.proxysuite.handlers;
 
 import de.sabbertran.proxysuite.ProxySuite;
-import de.sabbertran.proxysuite.objects.Home;
-import de.sabbertran.proxysuite.objects.Location;
-import de.sabbertran.proxysuite.objects.PendingTeleport;
-import de.sabbertran.proxysuite.objects.Warp;
+import de.sabbertran.proxysuite.utils.Home;
+import de.sabbertran.proxysuite.utils.Location;
+import de.sabbertran.proxysuite.utils.PendingTeleport;
+import de.sabbertran.proxysuite.utils.Warp;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 
