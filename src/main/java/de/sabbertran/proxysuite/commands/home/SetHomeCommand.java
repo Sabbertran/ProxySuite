@@ -92,7 +92,7 @@ public class SetHomeCommand extends Command {
                                             main.getPositionHandler().addPositionRunnable(p, new Runnable() {
                                                 public void run() {
                                                     main.getHomeHandler().setHome(player, homeName, main.getPositionHandler().getLocalPositions().remove(p.getUniqueId()));
-                                                    main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("home.set.others.success").replace("%home%",homeName).replace("%player%", fullName));
+                                                    main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("home.set.others.success").replace("%home%", homeName).replace("%player%", fullName));
                                                 }
                                             });
                                         } else {

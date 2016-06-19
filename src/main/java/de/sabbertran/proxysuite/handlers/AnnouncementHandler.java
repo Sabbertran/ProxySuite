@@ -28,7 +28,9 @@ public class AnnouncementHandler {
             String line;
             while ((line = read.readLine()) != null) {
                 line = line.trim();
-                if (!line.equals("") && !line.startsWith("#"))
+                if (line.equals("''"))
+                    announcements.add("");
+                else if (!line.equals("") && !line.startsWith("#"))
                     announcements.add(line);
             }
         } catch (FileNotFoundException e) {
@@ -61,13 +63,15 @@ public class AnnouncementHandler {
                 message = announcements.get(r.nextInt(announcements.size()));
             }
 
-            if (message.startsWith("{") && message.endsWith("}"))
-                message = "[" + main.getConfig().getString("ProxySuite.Announcements.PrefixJson") + "," +
-                        message + "]";
-            else
-                message = main.getConfig().getString("ProxySuite.Announcements.Prefix") + message;
+            if (!message.trim().equals("")) {
+                if (message.startsWith("[") && message.endsWith("]"))
+                    message = "[" + main.getConfig().getString("ProxySuite.Announcements.PrefixJson") + "," +
+                            message + "]";
+                else
+                    message = main.getConfig().getString("ProxySuite.Announcements.Prefix") + message;
 
-            main.getMessageHandler().broadcast(message);
+                main.getMessageHandler().broadcast(message);
+            }
         }
     }
 }

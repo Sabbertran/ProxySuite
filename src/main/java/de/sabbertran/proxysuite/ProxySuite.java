@@ -125,6 +125,7 @@ public class ProxySuite extends Plugin {
             Metrics metrics = new Metrics(this);
             metrics.start();
         } catch (IOException e) {
+            // Failed to submit the stats :-(
         }
 
         getLogger().info(getDescription().getName() + " " + getDescription().getVersion() + " by " + getDescription()
@@ -152,7 +153,7 @@ public class ProxySuite extends Plugin {
                         " AUTO_INCREMENT, `uuid` VARCHAR(256) NOT NULL, `name` VARCHAR(256) NOT NULL, `vanished` " +
                         "BOOLEAN NOT NULL DEFAULT FALSE, `flying` BOOLEAN NOT NULL DEFAULT FALSE, `gamemode` VARCHAR" +
                         "(256) NOT NULL DEFAULT 'SURVIVAL', `online` BOOLEAN NOT NULL, `first_join` TIMESTAMP NOT " +
-                        "NULL DEFAULT CURRENT_TIMESTAMP , `last_seen` TIMESTAMP NULL DEFAULT NULL, PRIMARY KEY (`id`)" +
+                        "NULL DEFAULT CURRENT_TIMESTAMP , `last_seen` TIMESTAMP NULL DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE(`uuid`)" +
                         ")");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "portals` (`id` INT NOT NULL" +
                         " AUTO_INCREMENT, `name` VARCHAR(256) NOT NULL, `type` VARCHAR(256) NOT NULL, `server` " +
