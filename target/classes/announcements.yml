@@ -1,0 +1,5 @@
+# Your announcements go here
+# You can use Json formatted or non-formatted messages with Bukkit colorcodes
+# If you are using Json messages they have to start with { and end with }
+&aYour administrator has not configured the announcements yet
+{"text":"This is a Json example for an announcement","color":"aqua"}

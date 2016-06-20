@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ProxySuite:jar">
+    <output-path>$PROJECT_DIR$/classes/artifacts/ProxySuite_jar</output-path>
+    <root id="archive" name="ProxySuite.jar">
+      <element id="module-output" name="ProxySuite" />
+      <element id="extracted-dir" path="$MAVEN_REPOSITORY$/org/mcstats/bungee/metrics/R7/metrics-R7.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
