@@ -41,15 +41,15 @@ public class TPAcceptCommand extends Command {
                                             .getPlayerHandler().getSuffix(teleport.getTo())));
                                 } else if (teleport.getType() == PendingTeleport.TeleportType.TPAHERE) {
                                     main.getMessageHandler().sendMessage(teleport.getFrom(), main.getMessageHandler().getMessage
-                                            ("teleport.request.accepted").replace("%player%", teleport.getFrom()
-                                            .getName()).replace("%prefix%", main
-                                            .getPlayerHandler().getPrefix(teleport.getFrom())).replace("%suffix%", main
-                                            .getPlayerHandler().getSuffix(teleport.getFrom())));
-                                    main.getMessageHandler().sendMessage(teleport.getTo(), main.getMessageHandler().getMessage
-                                            ("teleport.request.accepted.other").replace("%player%", teleport.getTo()
+                                            ("teleport.request.accepted").replace("%player%", teleport.getTo()
                                             .getName()).replace("%prefix%", main
                                             .getPlayerHandler().getPrefix(teleport.getTo())).replace("%suffix%", main
                                             .getPlayerHandler().getSuffix(teleport.getTo())));
+                                    main.getMessageHandler().sendMessage(teleport.getTo(), main.getMessageHandler().getMessage
+                                            ("teleport.request.accepted.other").replace("%player%", teleport.getFrom()
+                                            .getName()).replace("%prefix%", main
+                                            .getPlayerHandler().getPrefix(teleport.getFrom())).replace("%suffix%", main
+                                            .getPlayerHandler().getSuffix(teleport.getFrom())));
                                 }
 
                                 main.getTeleportHandler().teleportToPlayer(teleport.getFrom(), teleport.getTo(), ignoreCooldown);

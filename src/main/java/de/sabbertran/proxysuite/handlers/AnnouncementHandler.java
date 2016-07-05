@@ -64,7 +64,7 @@ public class AnnouncementHandler {
             }
 
             if (!message.trim().equals("")) {
-                if (message.startsWith("[") && message.endsWith("]"))
+                if (message.startsWith("{") && message.endsWith("}"))
                     message = "[" + main.getConfig().getString("ProxySuite.Announcements.PrefixJson") + "," +
                             message + "]";
                 else

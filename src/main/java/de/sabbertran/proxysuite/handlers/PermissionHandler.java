@@ -68,8 +68,7 @@ public class PermissionHandler {
         if (sender instanceof ProxiedPlayer) {
             ProxiedPlayer p = (ProxiedPlayer) sender;
             if (permissions.containsKey(p.getName())) {
-                if (permissions.get(p.getName()).contains(permission.toLowerCase()) ||
-                        (!ignoreSternchen && permissions.get(p.getName()).contains("*")))
+                if (permissions.get(p.getName()).contains(permission.toLowerCase()) || (!ignoreSternchen && permissions.get(p.getName()).contains("*")) || (!ignoreSternchen && permissions.get(p.getName()).contains(permission.toLowerCase() + ".*")))
                     return true;
                 else if (!ignoreSternchen) {
                     String check = "";
