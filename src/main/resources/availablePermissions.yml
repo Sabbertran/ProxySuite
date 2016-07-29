@@ -36,6 +36,8 @@ proxysuite.commands.sethome
 proxysuite.commands.sethome.others
 proxysuite.commands.sethome.multiple.#
 proxysuite.commands.sethome.multiple.*
+proxysuite.commands.sethome.world.multiple.#
+proxysuite.commands.sethome.world.multiple.*
 proxysuite.commands.note
 proxysuite.commands.noteinfo
 proxysuite.commands.noteinfo.teleport

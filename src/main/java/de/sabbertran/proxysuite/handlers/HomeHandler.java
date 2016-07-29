@@ -5,6 +5,7 @@ import de.sabbertran.proxysuite.utils.Home;
 import de.sabbertran.proxysuite.utils.Location;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.scheduler.ScheduledTask;
 
@@ -130,6 +131,14 @@ public class HomeHandler {
                 }
             }
         });
+    }
+
+    public int getHomesInWorld(ProxiedPlayer p, ServerInfo server, String world) {
+        int ret = 0;
+        for (Home h : homes.get(p))
+            if (h.getLocation().getServer().equals(server) && h.getLocation().getWorld().equals(world))
+                ret++;
+        return ret;
     }
 
     public void updateHomesFromDatabase(final ProxiedPlayer p) {
@@ -276,6 +285,25 @@ public class HomeHandler {
             for (String s : main.getPermissionHandler().getPermissions().get(player))
                 if (s.startsWith("proxysuite.commands.sethome.multiple.")) {
                     String amount = s.replace("proxysuite.commands.sethome.multiple.", "");
+                    try {
+                        int temp = Integer.parseInt(amount);
+                        if (temp > highest)
+                            highest = temp;
+                    } catch (NumberFormatException ex) {
+                    }
+                }
+        }
+        return highest;
+    }
+
+    public int getMaximumHomesPerWorld(String player) {
+        int highest = main.getConfig().getInt("ProxySuite.Homes.DefaultMaximumPerWorld");
+        if (main.getPermissionHandler().getPermissions().containsKey(player)) {
+            if (main.getPermissionHandler().hasPermission(player, "proxysuite.commands.sethome.world.multiple.*"))
+                return -1;
+            for (String s : main.getPermissionHandler().getPermissions().get(player))
+                if (s.startsWith("proxysuite.commands.sethome.world.multiple.")) {
+                    String amount = s.replace("proxysuite.commands.sethome.world.multiple.", "");
                     try {
                         int temp = Integer.parseInt(amount);
                         if (temp > highest)

@@ -153,6 +153,9 @@ public class PMessageListener implements Listener {
                                 main.getPlayerHandler().setGamemode(p, "SURVIVAL");
                             }
                         }
+
+                        main.getPermissionHandler().resetPermissions(p);
+                        main.getPermissionHandler().updatePermissions(p);
                     }
                 } else if (subchannel.equals("ExecuteCommand")) {
                     String player = in.readUTF();

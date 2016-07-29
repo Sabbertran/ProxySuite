@@ -31,6 +31,7 @@ ProxySuite:
     DefaultCooldown: 10
   Homes:
     DefaultMaximum: 10
+    DefaultMaximumPerWorld: 5
   Warnings:
     TimeUntilArchive: 120
     KickOnWarn: true

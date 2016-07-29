@@ -1,14 +1,13 @@
 package de.sabbertran.proxysuite.commands.home;
 
 import de.sabbertran.proxysuite.ProxySuite;
+import de.sabbertran.proxysuite.utils.Location;
 import net.md_5.bungee.api.CommandSender;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.plugin.Command;
-import net.md_5.bungee.api.scheduler.ScheduledTask;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.concurrent.TimeUnit;
 
 public class SetHomeCommand extends Command {
     private ProxySuite main;
@@ -53,14 +52,21 @@ public class SetHomeCommand extends Command {
                             final ProxiedPlayer p = (ProxiedPlayer) sender;
                             final String name = args[0];
 
-                            int maximum = main.getHomeHandler().getMaximumHomes(p.getName());
+                            final int maximum = main.getHomeHandler().getMaximumHomes(p.getName());
                             if (main.getHomeHandler().getHome(p.getName(), name) != null || maximum == -1 || main
                                     .getHomeHandler().getHomeAmount(p) < maximum) {
                                 main.getPositionHandler().requestPosition(p);
                                 main.getPositionHandler().addPositionRunnable(p, new Runnable() {
                                     public void run() {
-                                        main.getHomeHandler().setHome(p.getName(), name, main.getPositionHandler().getLocalPositions().remove(p.getUniqueId()));
-                                        main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("home.set.success").replace("%home%", name));
+                                        Location loc = main.getPositionHandler().getLocalPositions().remove(p.getUniqueId());
+                                        int maximumPerWorld = main.getHomeHandler().getMaximumHomesPerWorld(p.getName());
+                                        if (maximumPerWorld == -1 || main.getHomeHandler().getHomesInWorld(p, loc.getServer(), loc.getWorld()) < maximumPerWorld) {
+                                            main.getHomeHandler().setHome(p.getName(), name, loc);
+                                            main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("home.set.success").replace("%home%", name));
+                                        } else {
+                                            main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage
+                                                    ("home.set.maximum.world").replace("%maximum%", "" + maximumPerWorld));
+                                        }
                                     }
                                 });
                             } else {
