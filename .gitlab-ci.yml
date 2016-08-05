@@ -4,4 +4,4 @@ build:
   script: "mvn install -B"
   artifacts:
     paths:
-    - /*.jar
+    - target/*.jar
