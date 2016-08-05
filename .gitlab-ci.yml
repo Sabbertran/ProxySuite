@@ -3,4 +3,5 @@ image: maven:3-jdk-7
 build:
   script: "mvn install -B"
   artifacts:
-    name: "$CI_BUILD_NAME"
+    paths:
+    - target/*.jar
