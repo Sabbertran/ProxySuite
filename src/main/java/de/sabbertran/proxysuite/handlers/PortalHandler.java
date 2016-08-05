@@ -85,7 +85,9 @@ public class PortalHandler {
                 try {
                     PreparedStatement st = main.getSQLConnection().prepareStatement(sql2, Statement.RETURN_GENERATED_KEYS);
                     st.execute();
-                    p.setId(st.getGeneratedKeys().getInt(1));
+                    ResultSet generated = st.getGeneratedKeys();
+                    if (generated.next())
+                        p.setId(generated.getInt(1));
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
