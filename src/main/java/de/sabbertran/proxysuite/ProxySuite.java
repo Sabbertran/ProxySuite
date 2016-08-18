@@ -150,49 +150,49 @@ public class ProxySuite extends Plugin {
             try {
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "players` (`id` INT " +
                         "NOT NULL" +
-                        " AUTO_INCREMENT, `uuid` VARCHAR(256) NOT NULL, `name` VARCHAR(256) NOT NULL, `vanished` " +
+                        " AUTO_INCREMENT, `uuid` VARCHAR(255) NOT NULL, `name` VARCHAR(255) NOT NULL, `vanished` " +
                         "BOOLEAN NOT NULL DEFAULT FALSE, `flying` BOOLEAN NOT NULL DEFAULT FALSE, `gamemode` VARCHAR" +
                         "(256) NOT NULL DEFAULT 'SURVIVAL', `online` BOOLEAN NOT NULL, `first_join` TIMESTAMP NOT " +
                         "NULL DEFAULT CURRENT_TIMESTAMP , `last_seen` TIMESTAMP NULL DEFAULT NULL, PRIMARY KEY (`id`), UNIQUE(`uuid`)" +
                         ")");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "portals` (`id` INT NOT NULL" +
-                        " AUTO_INCREMENT, `name` VARCHAR(256) NOT NULL, `type` VARCHAR(256) NOT NULL, `server` " +
-                        "VARCHAR(256) NOT NULL, `world` VARCHAR(256) NOT NULL, `loc1_x` DOUBLE NOT NULL, `loc1_y` " +
+                        " AUTO_INCREMENT, `name` VARCHAR(255) NOT NULL, `type` VARCHAR(255) NOT NULL, `server` " +
+                        "VARCHAR(255) NOT NULL, `world` VARCHAR(255) NOT NULL, `loc1_x` DOUBLE NOT NULL, `loc1_y` " +
                         "DOUBLE NOT NULL, `loc1_z` DOUBLE NOT NULL, `loc1_pitch` DOUBLE NOT NULL, `loc1_yaw` DOUBLE " +
                         "NOT NULL, `loc2_x` DOUBLE NOT NULL, `loc2_y` DOUBLE NOT NULL, `loc2_z` DOUBLE NOT NULL, " +
-                        "`loc2_pitch` DOUBLE NOT NULL, `loc2_yaw` DOUBLE NOT NULL, `destination` VARCHAR(256) NOT " +
+                        "`loc2_pitch` DOUBLE NOT NULL, `loc2_yaw` DOUBLE NOT NULL, `destination` VARCHAR(255) NOT " +
                         "NULL, PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "warps` (`id` INT NOT NULL " +
-                        "AUTO_INCREMENT, `name` VARCHAR(256) NOT NULL, `hidden` BOOLEAN NOT NULL, `server` VARCHAR" +
-                        "(256) NOT NULL, `world` VARCHAR(256) NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, `z`" +
+                        "AUTO_INCREMENT, `name` VARCHAR(255) NOT NULL, `hidden` BOOLEAN NOT NULL, `server` VARCHAR" +
+                        "(256) NOT NULL, `world` VARCHAR(255) NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, `z`" +
                         " DOUBLE NOT NULL, `pitch` FLOAT NOT NULL, `yaw` FLOAT NOT NULL, PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "homes` (`id` INT NOT NULL " +
-                        "AUTO_INCREMENT, `player` VARCHAR(256) NOT NULL, `name` VARCHAR(256) NOT NULL, `server` " +
-                        "VARCHAR(256) NOT NULL, `world` VARCHAR(256) NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, " +
+                        "AUTO_INCREMENT, `player` VARCHAR(255) NOT NULL, `name` VARCHAR(255) NOT NULL, `server` " +
+                        "VARCHAR(255) NOT NULL, `world` VARCHAR(255) NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, " +
                         "`z` DOUBLE NOT NULL, `pitch` FLOAT NOT NULL, `yaw` FLOAT NOT NULL, PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "warnings` (`id` INT NOT " +
-                        "NULL AUTO_INCREMENT, `deleted` BOOLEAN NOT NULL DEFAULT FALSE, `player` VARCHAR(256) NOT " +
-                        "NULL, `player_read` BOOLEAN NOT NULL DEFAULT FALSE, `reason` TEXT NOT NULL, `author` VARCHAR(256) " +
+                        "NULL AUTO_INCREMENT, `deleted` BOOLEAN NOT NULL DEFAULT FALSE, `player` VARCHAR(255) NOT " +
+                        "NULL, `player_read` BOOLEAN NOT NULL DEFAULT FALSE, `reason` TEXT NOT NULL, `author` VARCHAR(255) " +
                         "NOT NULL, `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `archived` BOOLEAN NOT NULL " +
-                        "DEFAULT FALSE, `server` VARCHAR(256) NOT NULL, `world` VARCHAR(256) NOT NULL, `x` DOUBLE NOT" +
+                        "DEFAULT FALSE, `server` VARCHAR(255) NOT NULL, `world` VARCHAR(255) NOT NULL, `x` DOUBLE NOT" +
                         " NULL, `y` DOUBLE NOT NULL, `z` DOUBLE NOT NULL, `pitch` FLOAT NOT NULL, `yaw` FLOAT NOT " +
-                        "NULL, `lastMessages` VARCHAR(256) NOT NULL DEFAULT '', PRIMARY KEY (`id`))");
+                        "NULL, `lastMessages` VARCHAR(255) NOT NULL DEFAULT '', PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "bans` (`id` INT NOT NULL " +
-                        "AUTO_INCREMENT, `player` VARCHAR(256) NOT NULL, `reason` TEXT NOT NULL, `author` VARCHAR" +
+                        "AUTO_INCREMENT, `player` VARCHAR(255) NOT NULL, `reason` TEXT NOT NULL, `author` VARCHAR" +
                         "(256) NOT NULL, `expiration` TIMESTAMP NULL DEFAULT NULL, `created` TIMESTAMP NOT NULL DEFAULT " +
-                        "CURRENT_TIMESTAMP, `lastMessages` VARCHAR(256) NOT NULL DEFAULT '', PRIMARY KEY (`id`))");
+                        "CURRENT_TIMESTAMP, `lastMessages` VARCHAR(255) NOT NULL DEFAULT '', PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "spawns` (`id` INT NOT NULL " +
-                        "AUTO_INCREMENT, `type` VARCHAR(256) NOT NULL, `server` VARCHAR(256) NOT NULL, `world` " +
-                        "VARCHAR(256) NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, `z` DOUBLE NOT NULL, " +
+                        "AUTO_INCREMENT, `type` VARCHAR(255) NOT NULL, `server` VARCHAR(255) NOT NULL, `world` " +
+                        "VARCHAR(255) NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, `z` DOUBLE NOT NULL, " +
                         "`pitch` FLOAT NOT NULL, `yaw` FLOAT NOT NULL, PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "notes` (`id` INT NOT NULL AUTO_INCREMENT," +
-                        " `player` VARCHAR(256) NOT NULL, `note` TEXT NOT NULL, `deleted` BOOLEAN NOT NULL DEFAULT " +
-                        "FALSE, `author` VARCHAR(256) NOT NULL, `server` VARCHAR(256) NOT NULL, `world` VARCHAR(256) " +
+                        " `player` VARCHAR(255) NOT NULL, `note` TEXT NOT NULL, `deleted` BOOLEAN NOT NULL DEFAULT " +
+                        "FALSE, `author` VARCHAR(255) NOT NULL, `server` VARCHAR(255) NOT NULL, `world` VARCHAR(255) " +
                         "NOT NULL, `x` DOUBLE NOT NULL, `y` DOUBLE NOT NULL, `z` DOUBLE NOT NULL, `pitch` FLOAT NOT " +
-                        "NULL, `yaw` FLOAT NOT NULL, `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `lastMessages` VARCHAR(256) NOT NULL DEFAULT '', " +
+                        "NULL, `yaw` FLOAT NOT NULL, `date` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, `lastMessages` VARCHAR(255) NOT NULL DEFAULT '', " +
                         "PRIMARY KEY (`id`))");
                 getSQLConnection().createStatement().execute("CREATE TABLE IF NOT EXISTS `" + tablePrefix + "lastMessages` (`id` INT NOT" +
-                        " NULL AUTO_INCREMENT, `player` VARCHAR(256) NOT NULL, `message` TEXT NOT NULL, `date` " +
+                        " NULL AUTO_INCREMENT, `player` VARCHAR(255) NOT NULL, `message` TEXT NOT NULL, `date` " +
                         "TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP, PRIMARY KEY (`id`))");
             } catch (SQLException e) {
                 e.printStackTrace();
