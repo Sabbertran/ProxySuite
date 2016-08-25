@@ -176,7 +176,7 @@ public class HomeHandler {
             homes.clear();
             for (Home h : this.homes.get(p))
                 homes.add(h);
-            if (main.getConfig().getBoolean("ProxySuite.Homes.SortAlphabetical")) {
+            if (main.getConfig().getBoolean("ProxySuite.Homes.SortAlphabetically")) {
                 Collections.sort(homes, new Comparator<Home>() {
                     public int compare(Home o1, Home o2) {
                         return o1.getName().compareTo(o2.getName());
@@ -191,7 +191,7 @@ public class HomeHandler {
                         PreparedStatement pst = main.getSQLConnection().prepareStatement("SELECT h.name, h.server, h.world, h.x, h.y, h.z, h.pitch, h.yaw FROM " + main.getTablePrefix() + "homes h " +
                                 "INNER JOIN " + main.getTablePrefix() + "players p ON h.player = p.uuid " +
                                 "WHERE p.name = ? " +
-                                (main.getConfig().getBoolean("ProxySuite.Homes.SortAlphabetical") ? "ORDER BY h.name" : ""));
+                                (main.getConfig().getBoolean("ProxySuite.Homes.SortAlphabetically") ? "ORDER BY h.name" : ""));
                         pst.setString(1, player);
                         ResultSet rs = pst.executeQuery();
                         while (rs.next()) {
