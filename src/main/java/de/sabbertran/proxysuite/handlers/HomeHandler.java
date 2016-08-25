@@ -9,9 +9,12 @@ import net.md_5.bungee.api.config.ServerInfo;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.scheduler.ScheduledTask;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.concurrent.TimeUnit;
 
@@ -171,19 +174,26 @@ public class HomeHandler {
         ProxiedPlayer p = main.getPlayerHandler().getPlayer(player, sender, false);
         if (p != null && this.homes.containsKey(p)) {
             homes.clear();
-            for (Home h : this.homes.get(p)) {
+            for (Home h : this.homes.get(p))
                 homes.add(h);
+            if (main.getConfig().getBoolean("ProxySuite.Homes.SortAlphabetical")) {
+                Collections.sort(homes, new Comparator<Home>() {
+                    public int compare(Home o1, Home o2) {
+                        return o1.getName().compareTo(o2.getName());
+                    }
+                });
             }
         } else {
             main.getProxy().getScheduler().runAsync(main, new Runnable() {
                 public void run() {
                     try {
-                        ResultSet rs = main.getSQLConnection().createStatement().executeQuery("SELECT " + main
-                                .getTablePrefix() + "homes.* FROM " + main.getTablePrefix() + "homes, " + main
-                                .getTablePrefix() + "players WHERE " + main.getTablePrefix() + "homes.player = " +
-                                main.getTablePrefix() + "players.uuid AND " + main.getTablePrefix() + "players.name =" +
-                                " '" + player + "'");
                         homes.clear();
+                        PreparedStatement pst = main.getSQLConnection().prepareStatement("SELECT h.name, h.server, h.world, h.x, h.y, h.z, h.pitch, h.yaw FROM " + main.getTablePrefix() + "homes h " +
+                                "INNER JOIN " + main.getTablePrefix() + "players p ON h.player = p.uuid " +
+                                "WHERE p.name = ? " +
+                                (main.getConfig().getBoolean("ProxySuite.Homes.SortAlphabetical") ? "ORDER BY h.name" : ""));
+                        pst.setString(1, player);
+                        ResultSet rs = pst.executeQuery();
                         while (rs.next()) {
                             String name = rs.getString("name");
                             Location loc = new Location(main.getProxy().getServerInfo(rs.getString("server")), rs.getString

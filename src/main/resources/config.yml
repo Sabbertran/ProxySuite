@@ -32,6 +32,7 @@ ProxySuite:
   Homes:
     DefaultMaximum: 10
     DefaultMaximumPerWorld: 5
+    SortAlphabetically: false
   Warnings:
     TimeUntilArchive: 120
     KickOnWarn: true
