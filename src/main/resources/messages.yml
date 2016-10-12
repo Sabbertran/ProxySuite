@@ -149,7 +149,7 @@ note.notexists: 'The note #%id% does not exist'
 note.deleted.success: 'The note #%id% has been deleted'
 note.created: '%author% has created a new note for %player%: %note%'
 note.list.header: 'Notes for player %player%:'
-note.list.entry: '[{"text":"#%id%","color":"gold"},{"text":" - ","color":"gray"},{"text":"%note%,"color":"white"}]'
+note.list.entry: '[{"text":"#%id%","color":"gold"},{"text":" - ","color":"gray"},{"text":"%note%","color":"white"}]'
 note.list.entry.withextrainfo: '[{"text":"#%id%","color":"gold"},{"text":" - ","color":"gray"},{"text":"%note%","color":"white","hoverEvent":{"action":"show_text","value":{"text":"","extra":[{"text":"%dateCreated%\n","color":"gray"},{"text":"by %author%\n\n","color":"white"},{"text":"%server% [%world%]\n","color":"white"},{"text":"%coordX% | %coordY% | %coordZ%","color":"gray","italic":true}]}}}]'
 note.nofound: 'The player %player% has no notes'
 
