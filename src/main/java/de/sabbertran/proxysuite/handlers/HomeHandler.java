@@ -86,8 +86,8 @@ public class HomeHandler {
             }
 
             sqlDel = "DELETE FROM " + main.getTablePrefix() + "homes WHERE LOWER(name) = '" + name.toLowerCase() + "'" +
-                    " AND player IN (SELECT uuid FROM " + main.getTablePrefix() + "players WHERE name = '" + p
-                    .getName() + "')";
+                    " AND player IN (SELECT uuid FROM " + main.getTablePrefix() + "players WHERE LOWER(name) = '" + p != null ? p
+                    .getName().toLowerCase() : player.toLowerCase() + "')";
 
             sql = "INSERT INTO " + main.getTablePrefix() + "homes (player, name, server, world, x, y, z, pitch, yaw) " +
                     "SELECT " + main.getTablePrefix() + "players.uuid, '" + name + "', '" + loc.getServer().getName()
