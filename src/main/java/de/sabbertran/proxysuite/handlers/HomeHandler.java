@@ -85,6 +85,10 @@ public class HomeHandler {
                 homes.get(p).add(h);
             }
 
+            main.getLogger().info("name == null: " + (name == null));
+            main.getLogger().info("p == null: " + (p == null));
+            main.getLogger().info("player == null: " + (player == null));
+
             sqlDel = "DELETE FROM " + main.getTablePrefix() + "homes WHERE LOWER(name) = '" + name.toLowerCase() + "'" +
                     " AND player IN (SELECT uuid FROM " + main.getTablePrefix() + "players WHERE LOWER(name) = '" + p != null ? p
                     .getName().toLowerCase() : player.toLowerCase() + "')";
