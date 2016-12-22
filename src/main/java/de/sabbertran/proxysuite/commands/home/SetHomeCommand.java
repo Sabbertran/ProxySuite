@@ -60,7 +60,7 @@ public class SetHomeCommand extends Command {
                                     public void run() {
                                         Location loc = main.getPositionHandler().getLocalPositions().remove(p.getUniqueId());
                                         int maximumPerWorld = main.getHomeHandler().getMaximumHomesPerWorld(p.getName());
-                                        if (maximumPerWorld == -1 || main.getHomeHandler().getHomesInWorld(p, loc.getServer(), loc.getWorld()) < maximumPerWorld) {
+                                        if (main.getHomeHandler().getHome(p.getName(), name) != null || maximumPerWorld == -1 || main.getHomeHandler().getHomesInWorld(p, loc.getServer(), loc.getWorld()) < maximumPerWorld) {
                                             main.getHomeHandler().setHome(p.getName(), name, loc);
                                             main.getMessageHandler().sendMessage(sender, main.getMessageHandler().getMessage("home.set.success").replace("%home%", name));
                                         } else {
