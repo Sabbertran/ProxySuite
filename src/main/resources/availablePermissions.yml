@@ -84,3 +84,4 @@ proxysuite.commands.seen
 proxysuite.commands.vanish
 proxysuite.commands.reloadmessages
 proxysuite.commands.reloadannouncements
+proxysuite.commands.reloadperms

@@ -21,6 +21,11 @@ public class PermissionHandler {
         availablePermissions = new ArrayList<String>();
     }
 
+    public void updatePermissions() {
+        for (ProxiedPlayer p : main.getProxy().getPlayers())
+            updatePermissions(p);
+    }
+
     public void updatePermissions(ProxiedPlayer p) {
         ByteArrayOutputStream b = new ByteArrayOutputStream();
         DataOutputStream out = new DataOutputStream(b);
@@ -50,6 +55,11 @@ public class PermissionHandler {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void resetPermissions() {
+        for (ProxiedPlayer p : main.getProxy().getPlayers())
+            resetPermissions(p);
     }
 
     public void resetPermissions(CommandSender player) {
