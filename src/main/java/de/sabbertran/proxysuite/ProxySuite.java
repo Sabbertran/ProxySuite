@@ -76,7 +76,7 @@ public class ProxySuite extends Plugin {
             throw new RuntimeException("Unable to create file", e);
         }
         try {
-            config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(configFile);
+            config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new InputStreamReader(new FileInputStream(configFile), "UTF8"));
         } catch (IOException e) {
             e.printStackTrace();
         }

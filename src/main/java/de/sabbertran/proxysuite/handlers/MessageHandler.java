@@ -27,7 +27,7 @@ public class MessageHandler {
         messages = new HashMap<String, String>();
         File f = new File(main.getDataFolder(), "messages.yml");
         try {
-            BufferedReader read = new BufferedReader(new FileReader(f));
+            BufferedReader read = new BufferedReader(new InputStreamReader(new FileInputStream(f), "UTF8"));
             String line;
             while ((line = read.readLine()) != null) {
                 line = line.trim();

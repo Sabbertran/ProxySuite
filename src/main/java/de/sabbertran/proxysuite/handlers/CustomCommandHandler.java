@@ -8,10 +8,7 @@ import net.md_5.bungee.config.Configuration;
 import net.md_5.bungee.config.ConfigurationProvider;
 import net.md_5.bungee.config.YamlConfiguration;
 
-import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -33,7 +30,7 @@ public class CustomCommandHandler {
         for (File f : folder.listFiles()) {
             if (f.getName().toLowerCase().endsWith(".yml")) {
                 try {
-                    Configuration config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(f);
+                    Configuration config = ConfigurationProvider.getProvider(YamlConfiguration.class).load(new InputStreamReader(new FileInputStream(f), "UTF8"));
                     String command = f.getName().replace(".yml", "").trim();
                     ArrayList<String> disabledServers = (ArrayList<String>) config.getStringList("DisabledServers");
                     String permission = config.getString("Permission");
