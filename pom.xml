@@ -6,7 +6,7 @@
 
     <groupId>de.sabbertran.proxysuite</groupId>
     <artifactId>ProxySuite</artifactId>
-    <version>1.2</version>
+    <version>1.2.1</version>
 
     <repositories>
         <!-- BungeeCord repository -->
@@ -24,7 +24,7 @@
         <dependency>
             <groupId>net.md-5</groupId>
             <artifactId>bungeecord-api</artifactId>
-            <version>1.10-SNAPSHOT</version>
+            <version>1.12-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>codecrafter47.bungeetablistplus</groupId>
@@ -32,15 +32,4 @@
             <version>2.2.9-SNAPSHOT</version>
         </dependency>
     </dependencies>
-
-    <distributionManagement>
-        <repository>
-            <id>sabbertran-repo</id>
-            <url>https://repo.sabbertran.de/content/repositories/releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>sabbertran-repo</id>
-            <url>https://repo.sabbertran.de/content/repositories/snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 </project>

@@ -3,6 +3,7 @@ package de.sabbertran.proxysuite;
 import codecrafter47.bungeetablistplus.BungeeTabListPlus;
 import de.sabbertran.proxysuite.utils.Location;
 import de.sabbertran.proxysuite.utils.LoggedMessage;
+import net.md_5.bungee.api.chat.TextComponent;
 import net.md_5.bungee.api.connection.ProxiedPlayer;
 import net.md_5.bungee.api.event.*;
 import net.md_5.bungee.api.plugin.Listener;
@@ -95,7 +96,7 @@ public class Events implements Listener {
                     else
                         reason = main.getMessageHandler().getMessage("join.banneduntil").replace("%reason%", rs
                                 .getString("reason")).replace("%expiration%", main.getDateFormat().format(expiration));
-                    ev.setCancelReason(reason);
+                    ev.setCancelReason(new TextComponent(reason));
                 }
             }
         } catch (SQLException e) {
@@ -106,7 +107,7 @@ public class Events implements Listener {
             if (main.getPlayerHandler().getIps().containsKey(ip) && main.getPlayerHandler().getIps().get(ip) >= main
                     .getConfig().getInt("ProxySuite.Security.MaxPlayersWithSameIP")) {
                 ev.setCancelled(true);
-                ev.setCancelReason(main.getMessageHandler().getMessage("security.join.denied"));
+                ev.setCancelReason(new TextComponent(main.getMessageHandler().getMessage("security.join.denied")));
             }
         }
 
@@ -191,7 +192,8 @@ public class Events implements Listener {
                                 if (rs.next() && rs.getBoolean("vanished")) {
                                     main.getPlayerHandler().getVanishedPlayers().add(p);
                                     main.getPlayerHandler().sendVanishToServer(p);
-                                    BungeeTabListPlus.hidePlayer(p);
+                                    if (main.isBungeeTabListPlusInstalled())
+                                        BungeeTabListPlus.hidePlayer(p);
                                 }
                             } catch (SQLException e) {
                                 e.printStackTrace();
